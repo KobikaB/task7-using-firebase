@@ -37,7 +37,7 @@ const App = () => {
           path="/create_student"
           element={
             <Suspense fallback={<div>Loading</div>}>
-              <CreateStudent />{" "}
+              <CreateStudent />
             </Suspense>
           }
         />

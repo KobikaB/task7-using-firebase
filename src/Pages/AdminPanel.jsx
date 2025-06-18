@@ -15,9 +15,10 @@ const AdminPanel = () => {
     navigate(`/edit/${student.id}`);
   };
 
-  const fetchStudents = async () => {
-    try {
-      const querySnapshot = await getDocs(collection(db, "students"));
+  useEffect(() => {
+    const fetchStudents = async () => {
+      const querySnapshot = await getDocs(collection(db, "students")); //in firebase collection has two parameter
+      console.log(querySnapshot);
       const data = querySnapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
@@ -25,15 +26,11 @@ const AdminPanel = () => {
       setStudents(data);
       setVisibleStudents([]);
       setCurrentIndex(0);
-    } catch (error) {
-      console.error("Error fetching students:", error);
-      toast.error("Failed to fetch students.");
-    }
-  };
-
-  useEffect(() => {
+    };
     fetchStudents();
   }, []);
+
+  console.log(students);
 
   const handleNextStudent = () => {
     if (currentIndex < students.length) {
