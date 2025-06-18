@@ -11,6 +11,9 @@ import { createRoutesFromElements } from "react-router";
 const AdminPanel = lazy(() => import("./Pages/AdminPanel"));
 const EditStudent = lazy(() => import("./Pages/EditStudent"));
 const CreateStudent = lazy(() => import("./Pages/CreateStudent"));
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const App = () => {
   const router = createBrowserRouter(
