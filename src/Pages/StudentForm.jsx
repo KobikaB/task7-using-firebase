@@ -1,4 +1,3 @@
-// StudentForm.jsx
 import React from "react";
 
 const StudentForm = ({
@@ -11,14 +10,14 @@ const StudentForm = ({
   return (
     <div className="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-lg">
       <h2 className="text-3xl font-bold mb-6 text-center text-amber-600">
-        Student's Edit Form
+        Student's Form
       </h2>
       <form
         onSubmit={(e) => {
           e.preventDefault();
           onSubmit();
         }}
-        className="flex flex-col  gap-3  mt-4"
+        className="flex flex-col gap-3 mt-4"
       >
         <input
           name="first_name"
@@ -70,14 +69,19 @@ const StudentForm = ({
           placeholder="Academic Year"
           required
         />
-        <input
+
+        
+        <select
           name="status"
           value={formData.status}
           onChange={onChange}
           className="p-2 border-2 rounded block w-full"
-          placeholder="Status"
           required
-        />
+        >
+          <option value="">Select Status</option>
+          <option value="active">Active</option>
+          <option value="inactive">Inactive</option>
+        </select>
 
         <div className="col-span-1 md:col-span-2 mt-6 flex flex-col md:flex-row items-center justify-center space-y-2 md:space-y-0 md:space-x-4">
           <button

@@ -28,17 +28,12 @@ const CreateStudent = () => {
   };
 
   const handleCreate = async () => {
-    try {
-      await addDoc(collection(db, "students"), formData);
-      toast.success("Student created successfully!");
+    await addDoc(collection(db, "students"), formData);
+    toast.success("Student created successfully!");
 
-      setTimeout(() => {
-        navigate("/");
-      }, 1500);
-    } catch (error) {
-      console.error("Error creating student:", error);
-      toast.error("Failed to create student.");
-    }
+    setTimeout(() => {
+      navigate("/");
+    }, 1500);
   };
 
   return (

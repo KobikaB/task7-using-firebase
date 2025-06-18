@@ -38,15 +38,10 @@ const EditStudent = () => {
   };
 
   const handleSave = async () => {
-    try {
-      const studentRef = doc(db, "students", id);
-      await updateDoc(studentRef, formData);
-      toast.success("Student updated");
-      navigate("/");
-    } catch (err) {
-      console.error("Error updating student:", err);
-      toast.error("Update failed");
-    }
+    const studentRef = doc(db, "students", id);
+    await updateDoc(studentRef, formData);
+    toast.success("Student updated");
+    navigate("/");
   };
 
   if (!formData) {
